@@ -26,4 +26,3 @@ $routes->GET('/request-forms/create/(:any)', 'RequestFormController::create/$1',
 $routes->POST('/request-forms/store/(:any)', 'RequestFormController::store/$1',['filter' => ['authGuard','deptGuard']]);
 $routes->GET('/request-forms/show/(:any)', 'RequestFormController::show/$1',['filter' => ['authGuard','deptGuard']]);
 $routes->POST('/request-forms/delete/(:any)', 'RequestFormController::delete/$1',['filter' => ['authGuard','deptGuard']]);
-$routes->POST('/request-forms/update/(:any)', 'RequestFormController::update/$1',['filter' => ['authGuard','deptGuard']]);

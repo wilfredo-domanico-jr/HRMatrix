@@ -6,8 +6,6 @@
 <section>
 
 
-  <form action="<?= base_url('request-forms/update/').$formDetail['REQUEST_ID'] ?> " method="POST">
-
     <div class="row">
 
       <div class="col-4">
@@ -31,16 +29,12 @@
 
     </div>
 
+
     <div class="container mt-4">
-      <button type="submit" class="btn btn-outline-primary">
-        <i class="fa-solid fa-edit"></i>
-        <span>
-          Update
-        </span>
-      </button>
+
       <a href="<?= base_url('request-forms') ?>" class="btn btn-outline-danger">
-        <i class="fa-solid fa-ban"></i>
-        <span>Cancel</span>
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Go Back</span>
       </a>
     </div>
 
