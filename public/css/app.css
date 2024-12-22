@@ -1,24 +1,28 @@
 /* CUSTOM ALERTS */
 
-*{
-   padding:0;
-   margin:0;
-   box-sizing: border-box;
-   font-family: "Varela Round", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
-body{
-    background-color: #e3e3e3;
+body {
+    background: rgb(42,194,243);
+    background: linear-gradient(349deg, rgba(42,194,243,1) 25%, rgba(140,82,255,1) 100%);
 }
 
-table{
-    font-size:16px;
+table {
+  font-size: 16px;
 }
-table thead tr th{
-    color:#6c6a6a;
+table thead tr th {
+  color: #6c6a6a;
 }
 
+ /* Set the height of the container to 100vh for full viewport height */
+ .full-height {
+    height: 100vh;
+}
 

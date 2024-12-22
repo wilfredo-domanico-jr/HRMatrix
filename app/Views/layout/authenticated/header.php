@@ -19,7 +19,7 @@
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-    <link rel="icon" href="<?php echo base_url('images/logo.png'); ?>" type="image/x-icon"/>
+    <link rel="icon" href="<?php echo base_url('images/HRMatrixLogo.png'); ?>" type="image/x-icon"/>
 
     <title>HRIS</title>
 </head>
@@ -29,7 +29,7 @@
     <header class="header">
         <div class="row px-4">
             <div class="col-3">
-                <img src="<?php echo base_url('images/logo.png'); ?>" id="logo-img" alt="App Logo">
+                <img src="<?php echo base_url('images/HRMatrixLogo.png'); ?>" id="logo-img" alt="App Logo">
             </div>
             <div class="col-5 header-search">
                 <div class="header-search-bar">
@@ -40,7 +40,7 @@
             <div class="col-4">
                 <div class="far-right">
                     <i class="fa-solid fa-bell icons"></i>
-                    <img src="<?php echo base_url('images/logo.png'); ?>" alt="Avatar" class="avatar">
+                    <img src="<?php echo base_url('images/HRMatrixLogo.png'); ?>" alt="Avatar" class="avatar">
                     <span><?php echo session()->get('name'); ?></span>
                 </div>
             </div>

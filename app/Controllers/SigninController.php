@@ -8,7 +8,7 @@ class SigninController extends Controller
     public function index()
     {
         // Check if authenticated
-        if(session('isLoggedIn')){
+        if(session('isLoggedIn')){ 
             return redirect()->to('/home');
         }else{
             helper(['form']);
