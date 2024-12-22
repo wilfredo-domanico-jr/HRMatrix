@@ -5,7 +5,7 @@
 
         <div class="p-4 w-50 h-50">
             <h1 class="fw-bold text-white animate__animated animate__backInLeft">HRMatrix</h1>
-            <h3 class="animate__animated animate__backInUp">Your trusted partner in building a Culture of Excellence</h3>
+            <h3 class="animate__animated animate__backInUp">Building a Culture of Excellence</h3>
 
         </div>
 
