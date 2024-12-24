@@ -73,7 +73,7 @@
             class="fas fa-code-branch fa-fw me-3"></i><span>Department</span></a>
         <a href="<?= base_url('/users')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/users') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
-        <a href="<?= base_url('/roles')?>" class="list-group-item list-group-item-action py-2 ripple"><i
+        <a href="<?= base_url('/roles')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/roles') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-user-tag fa-fw me-3"></i><span>Roles</span></a>
             <button type="button" onclick="logout()" href="#" class="list-group-item list-group-item-action py-2 ripple"><i
             class="fas fa-power-off fa-fw me-3"></i><span>Log out</span></button>

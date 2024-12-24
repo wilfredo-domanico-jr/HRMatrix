@@ -37,3 +37,11 @@ $routes->POST('/request-forms/delete/(:any)', 'RequestFormController::delete/$1'
     $routes->POST('/users/store', 'Admin\UsersController::store',['filter' => 'authGuard']);
     $routes->GET('/users/show/(:any)', 'Admin\UsersController::show/$1',['filter' => 'authGuard']);
     $routes->POST('/users/update/(:any)', 'Admin\UsersController::update/$1',['filter' => 'authGuard']);
+
+    /************* ROLES GROUP ********************/
+    $routes->GET('/roles', 'Admin\RoleController::index',['filter' => 'authGuard']);
+    $routes->POST('/roles/delete/(:any)', 'Admin\RoleController::delete/$1',['filter' => 'authGuard']);
+    $routes->GET('/roles/create', 'Admin\RoleController::create',['filter' => 'authGuard']);
+    $routes->POST('/roles/store', 'Admin\RoleController::store',['filter' => 'authGuard']);
+    $routes->GET('/roles/show/(:any)', 'Admin\RoleController::show/$1',['filter' => 'authGuard']);
+    $routes->POST('/roles/update/(:any)', 'Admin\RoleController::update/$1',['filter' => 'authGuard']);
