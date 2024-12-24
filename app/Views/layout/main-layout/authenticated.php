@@ -69,12 +69,27 @@
             class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
         <a href="<?= base_url('/request-forms')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/request-forms') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-chart-bar fa-fw me-3"></i><span>Request Forms</span></a>
-        <a href="<?= base_url('/departments')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/departments') === base_url($page)) ? 'active' : '' ?>"><i
-            class="fas fa-code-branch fa-fw me-3"></i><span>Department</span></a>
-        <a href="<?= base_url('/users')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/users') === base_url($page)) ? 'active' : '' ?>"><i
-            class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
-        <a href="<?= base_url('/roles')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/roles') === base_url($page)) ? 'active' : '' ?>"><i
-            class="fas fa-user-tag fa-fw me-3"></i><span>Roles</span></a>
+           
+            <?php
+            
+             // Check role ID if admin which is RL-001
+             if(session('role_id') == 'RL-001'){
+                ?>
+
+            <a href="<?= base_url('/departments')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/departments') === base_url($page)) ? 'active' : '' ?>"><i
+                class="fas fa-code-branch fa-fw me-3"></i><span>Department</span></a>
+            <a href="<?= base_url('/users')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/users') === base_url($page)) ? 'active' : '' ?>"><i
+                class="fas fa-users fa-fw me-3"></i><span>Users</span></a>
+            <a href="<?= base_url('/roles')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/roles') === base_url($page)) ? 'active' : '' ?>"><i
+                class="fas fa-user-tag fa-fw me-3"></i><span>Roles</span></a>
+
+            <?php
+            
+                }
+            
+            ?>
+        
+            
             <button type="button" onclick="logout()" href="#" class="list-group-item list-group-item-action py-2 ripple"><i
             class="fas fa-power-off fa-fw me-3"></i><span>Log out</span></button>
       </div>

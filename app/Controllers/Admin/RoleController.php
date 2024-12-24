@@ -119,6 +119,19 @@ class RoleController extends BaseController
     public function delete($roleId)
     {
      
+
+        // In here i whould like to prevent deleting of Admin and Employee role by default 
+        // Since those are the prerequisite.
+
+
+        $defaultRoleID = ['RL-001','RL-002'];
+
+
+        if(in_array($roleId,$defaultRoleID)){
+             
+            // Check kung the role is ad
+        }
+
         $data = new RoleModel();
         $data->where('ROLE_ID', $roleId)
             ->delete();

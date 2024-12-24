@@ -36,6 +36,7 @@ class Filters extends BaseFilters
         'performance'   => PerformanceMetrics::class,
         'authGuard' => \App\Filters\AuthGuard::class,
         'deptGuard' => \App\Filters\DepartmentGuard::class,
+        'roleAccessGuard' => \App\Filters\RoleAccessGuard::class,
     ];
 
     /**
