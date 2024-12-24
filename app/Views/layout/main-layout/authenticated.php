@@ -69,7 +69,7 @@
             class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
         <a href="<?= base_url('/request-forms')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/request-forms') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-chart-bar fa-fw me-3"></i><span>Request Forms</span></a>
-        <a href="<?= base_url('/departments')?>" class="list-group-item list-group-item-action py-2 ripple"><i
+        <a href="<?= base_url('/departments')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/departments') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-code-branch fa-fw me-3"></i><span>Department</span></a>
         <a href="<?= base_url('/users')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/users') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-users fa-fw me-3"></i><span>Users</span></a>

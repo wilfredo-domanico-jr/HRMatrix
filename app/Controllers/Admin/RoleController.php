@@ -5,7 +5,6 @@ namespace App\Controllers\Admin;
 use App\Controllers\BaseController;
 use App\Models\DepartmentModel;
 use App\Models\RoleModel;
-use App\Models\UserModel;
 
 class RoleController extends BaseController
 {
@@ -77,20 +76,12 @@ class RoleController extends BaseController
 
     }
 
-    public function show($userId)
+    public function show($roleID)
     {
         $data=[];
-        $model = new UserModel();
+        $model = new RoleModel();
 
-        $data['user'] = $model->where('id', $userId)->first();
-
-        $departments = new DepartmentModel;
-        $roles = new RoleModel;
-
-        $data['departments'] = $departments->findAll();
-        $data['roles'] = $roles->findAll();
-
-
+        $data['role'] = $model->where('ROLE_ID', $roleID)->first();
 
         return view('admin/roles/show',$data);
     }

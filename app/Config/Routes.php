@@ -45,3 +45,12 @@ $routes->POST('/request-forms/delete/(:any)', 'RequestFormController::delete/$1'
     $routes->POST('/roles/store', 'Admin\RoleController::store',['filter' => 'authGuard']);
     $routes->GET('/roles/show/(:any)', 'Admin\RoleController::show/$1',['filter' => 'authGuard']);
     $routes->POST('/roles/update/(:any)', 'Admin\RoleController::update/$1',['filter' => 'authGuard']);
+
+
+    /************* DEPARTMENTS GROUP ********************/
+    $routes->GET('/departments', 'Admin\DepartmentController::index',['filter' => 'authGuard']);
+    $routes->POST('/departments/delete/(:any)', 'Admin\DepartmentController::delete/$1',['filter' => 'authGuard']);
+    $routes->GET('/departments/create', 'Admin\DepartmentController::create',['filter' => 'authGuard']);
+    $routes->POST('/departments/store', 'Admin\DepartmentController::store',['filter' => 'authGuard']);
+    $routes->GET('/departments/show/(:any)', 'Admin\DepartmentController::show/$1',['filter' => 'authGuard']);
+    $routes->POST('/departments/update/(:any)', 'Admin\DepartmentController::update/$1',['filter' => 'authGuard']);
