@@ -1,3 +1,9 @@
+
+<?= $this->extend('layout/main-layout/authenticated') ?>
+
+ 
+<?= $this->section('content') ?> 
+
 <div class="page-title">
   <h1><?= $formDetail['FORM_DESCRIPTION'] ?></h1>
 
@@ -53,7 +59,7 @@
       </div>
     </div>
 
-    <div class="container mt-4">
+    <div class="mt-4">
       <button type="submit" class="btn btn-outline-success">
         <i class="fa-solid fa-upload"></i>
         <span>
@@ -72,3 +78,7 @@
 
 
 </section>
+
+
+        
+<?= $this->endSection() ?>

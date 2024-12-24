@@ -9,7 +9,7 @@ An web application created aims to help modern organizations to to manage their 
 
 This project is built using the following technologies:
 
-- **Code Igniter**: A PHP framework for for building dynamic websites.
+- **Code Igniter**: A PHP framework for building dynamic websites.
 - **Bootstrap**: The most popular CSS Framework for developing responsive and mobile-first websites..
 
 ## Who's the Developer

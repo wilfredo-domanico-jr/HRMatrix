@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-body {
+.unathenticated-body {
     background: rgb(42,194,243);
     background: linear-gradient(349deg, rgba(42,194,243,1) 25%, rgba(140,82,255,1) 100%);
 }
@@ -25,4 +25,6 @@ table thead tr th {
  .full-height {
     height: 100vh;
 }
+
+
 

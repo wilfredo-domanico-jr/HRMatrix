@@ -1,3 +1,10 @@
+<?= $this->extend('layout/main-layout/authenticated') ?>
+
+
+<?= $this->section('content') ?>
+
+
+
 <div class="page-title">
   <h1><?= $formDetail['FORM_DESCRIPTION'] ?></h1>
 
@@ -5,7 +12,7 @@
 
 <section>
 
-  <form action="<?= base_url('request-forms/store/').$formDetail['FORM_ID']?> " method="POST">
+  <form action="<?= base_url('request-forms/store/') . $formDetail['FORM_ID'] ?> " method="POST">
 
     <div class="row">
 
@@ -72,18 +79,18 @@
 
     </div>
 
-    <div class="container mt-4">
-    <button type="submit" class="btn btn-outline-success">
-      <i class="fa-solid fa-upload"></i>
-      <span>
-        Submit
-      </span>
-    </button>
-    <a href="<?= base_url('request-forms') ?>" class="btn btn-outline-danger">
-      <i class="fa-solid fa-ban"></i>
-      <span>Cancel</span>
-    </a>
-  </div>
+    <div class="mt-4">
+      <button type="submit" class="btn btn-outline-success">
+        <i class="fa-solid fa-upload"></i>
+        <span>
+          Submit
+        </span>
+      </button>
+      <a href="<?= base_url('request-forms') ?>" class="btn btn-outline-danger">
+        <i class="fa-solid fa-ban"></i>
+        <span>Cancel</span>
+      </a>
+    </div>
 
 
   </form>
@@ -91,3 +98,7 @@
 
 
 </section>
+
+
+
+<?= $this->endSection() ?>

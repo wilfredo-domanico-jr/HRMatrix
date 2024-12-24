@@ -6,7 +6,7 @@ use App\Models\UserModel;
 use App\Models\FormTypeModel;
 use CodeIgniter\HTTP\Request;
 use App\Models\OvertimeTypeModel;
-use App\Models\UserOvertimeModel;
+use App\Models\UserOvertimeModel; 
 use App\Models\RequestHeaderModel;
 use App\Models\HalfdayRequestModel;
 use App\Models\OvertimeRequestModel;
@@ -22,14 +22,19 @@ class RequestFormController extends BaseController
 
     public function index()
     {
-        $formTypes = new FormTypeModel();
-        $data['formTypes'] = $formTypes->findAll();
+
+        $data=[];
+        $model = new FormTypeModel;
+        $data['page'] = isset($_GET['page']) ? $_GET['page'] : 1;
+        $data['perPage'] = 10;
+        $data['total'] = $model->countAll();
+        $data['users'] = $model->paginate($data['perPage']);
+        $data['pager'] = $model->pager;
+        $data['formTypes'] = $model->findAll();
         $userId = session('id');
         $data['userRequest'] = (new RequestHeaderModel())->getRequestByUser($userId);
 
-        echo view('layout/authenticated/header');
-        echo view('request-form/index', $data);
-        echo view('layout/authenticated/footer');
+        return view('request-form/index', $data);
     }
 
 
@@ -46,7 +51,7 @@ class RequestFormController extends BaseController
             return redirect()->to('/request-forms');
         }
 
-        echo view('layout/authenticated/header');
+       
         helper(['form']);
 
         $data['formDetail'] = $isFormTypeExisting;
@@ -54,35 +59,29 @@ class RequestFormController extends BaseController
             case 'FRM-00001':
 
                 $data['overtimeTypes'] = (new OvertimeTypeModel())->findAll();
-                echo view('request-form/forms/FRM-00001', $data);
+                return view('request-form/forms/FRM-00001', $data);
                 break;
             case 'FRM-00002':
-                echo view('request-form/forms/FRM-00002', $data);
+                return view('request-form/forms/FRM-00002', $data);
                 break;
 
             case 'FRM-00003':
 
-                echo view('request-form/forms/FRM-00003', $data);
+                return view('request-form/forms/FRM-00003', $data);
                 break;
             case 'FRM-00004':
                 $data['credits'] = (new UserModel())->getUserCredits(session()->get('id'));
-                echo view('request-form/forms/FRM-00004', $data);
+                return view('request-form/forms/FRM-00004', $data);
                 break;
             case 'FRM-00005':
                 $data['mandatoryLeaveTypes'] = (new MandatoryLeaveTypeModel())->findAll();
-                echo view('request-form/forms/FRM-00005', $data);
-                break;
-            case 'FRM-00006':
-                $data['ordinaryWorkingOT'] = (new UserOvertimeModel())->getUserOrdinaryWorkingDayOvertime(session()->get('id'));
-                $data['restDayOT'] = (new UserOvertimeModel())->getUserRestDayOvertime(session()->get('id'));
-                $data['specialOT'] = (new UserOvertimeModel())->getUserSpecialOvertime(session()->get('id'));
-                echo view('request-form/forms/FRM-00006', $data);
+                return view('request-form/forms/FRM-00005', $data);
                 break;
             default:
                 return redirect()->to('/request-forms');
         }
 
-        echo view('layout/authenticated/footer');
+       ;
     }
 
     public function show($request_id)
@@ -96,36 +95,36 @@ class RequestFormController extends BaseController
 
         $formType = $isRequestExisting['FORM_TYPE'];
 
-        echo view('layout/authenticated/header');
+        
 
         switch ($formType) {
             case 'FRM-00001':
                 $data['formDetail'] = (new OvertimeRequestModel())->getOvertimeRequestByID($request_id);
                 $data['overtimeTypes'] = (new OvertimeTypeModel())->findAll();
-                echo view('request-form/display-form/FRM-00001', $data);
+                return view('request-form/display-form/FRM-00001', $data);
                 break;
             case 'FRM-00002':
                 $data['formDetail'] = (new UndertimeRequestModel())->getUndertimeRequestByID($request_id);
-                echo view('request-form/display-form/FRM-00002', $data);
+                return view('request-form/display-form/FRM-00002', $data);
                 break;
             case 'FRM-00003':
                 $data['formDetail'] = (new HalfdayRequestModel())->getHalfdayRequestByID($request_id);
-                echo view('request-form/display-form/FRM-00003', $data);
+                return view('request-form/display-form/FRM-00003', $data);
                 break;
             case 'FRM-00004':
                 $data['formDetail'] = (new LeaveRequestPerHourModel())->getLeaveRequestPerHourByID($request_id);
-                echo view('request-form/display-form/FRM-00004', $data);
+                return view('request-form/display-form/FRM-00004', $data);
                 break;
             case 'FRM-00005':
                 $data['formDetail'] = (new LeaveRequestMandatoryModel())->getLeaveRequestMandatoryByID($request_id);
                 $data['mandatoryLeaveTypes'] = (new MandatoryLeaveTypeModel())->findAll();
-                echo view('request-form/display-form/FRM-00005', $data);
+                return view('request-form/display-form/FRM-00005', $data);
                 break;
             default:
                 return redirect()->to('/request-forms');
         }
 
-        echo view('layout/authenticated/footer');
+    
     }
 
     public function store($formType)

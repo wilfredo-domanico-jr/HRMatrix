@@ -1,48 +1,10 @@
-
-
-
-.side-nav {
-    position: fixed; /* Fix it to the left side */
-    left: 0;
-    top: 3.7rem;
-    width: 270px; /* Set the width of the side nav */
-    height: 100%; /* Full height */
-    padding-top: 20px; /* Padding at the top */
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Add a slight shadow for better visibility */
-    z-index: 999; /* Ensure it's on top */
-    overflow-x: hidden; /* Disable horizontal scroll */
-    padding-right: 10px;
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 58px 0 0; /* Height of navbar */
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 240px;
+  z-index: 600;
 }
-
-.side-nav a.nav-item {
-    display: block;
-    color: #111; /* Light text color */
-    padding: 10px 20px 10px 10px;
-    text-decoration: none;
-    font-size: 18px; /* Adjust font size */
-    transition: background-color 0.3s; /* Smooth hover effect */
-    white-space: nowrap; /* Prevent text from wrapping */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis for overflow text */
-    border-radius: 10px;
-}
-
-.side-nav a {
-    margin: 10px 0px;
-}
-
-.side-nav a.active{
-    color:#2da64e;
-    background-color: #d3cece;
-}
-
-.side-nav a.nav-item:hover {
-    background-color: #d3cece; /* Change background color on hover */
-
-}
-
-.side-nav a.nav-item i {
-    margin-right: 10px; /* Space between icon and text */
-}
-
-

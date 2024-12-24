@@ -7,14 +7,15 @@ class SigninController extends Controller
 {
     public function index()
     {
+       
         // Check if authenticated
         if(session('isLoggedIn')){ 
             return redirect()->to('/home');
         }else{
             helper(['form']);
-            echo view('layout/guest/header');
-            echo view('auth/signin');
-            echo view('layout/guest/footer');
+
+            return view('auth/signin');
+            
         }
     }
 

@@ -9,9 +9,8 @@ class SignupController extends Controller
     {
         helper(['form']);
         $data = [];
-        echo view('layout/guest/header');
-        echo view('auth/signup', $data);
-        echo view('layout/guest/footer');
+
+        return view('auth/signup', $data);
     }
 
     public function store()

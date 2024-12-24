@@ -1,3 +1,9 @@
+
+<?= $this->extend('layout/main-layout/guest') ?>
+
+ 
+<?= $this->section('content') ?>
+
 <div class="container full-height d-flex justify-content-center align-items-center">
 
 
@@ -17,20 +23,20 @@
 
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
-                    <input type="email" name="email" class="form-control" value="<?= set_value('email') ?>" placeholder="Enter Email">
+                    <input type="email" name="email" class="form-control" value="<?= set_value('email') ?>" placeholder="Enter Email" required>
                 </div>
                 <div class="input-group mb-3">
                     <span class="input-group-text"><i class="fa-solid fa-key"></i></span>
-                    <input type="password" name="password" class="form-control" placeholder="Enter Password">
+                    <input type="password" name="password" class="form-control" placeholder="Enter Password" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100 mb-3">Login</button>
 
-                <a href="/" class="nav-link text-secondary">Forgot password?</a>
+                <a href="/forgot-password" class="nav-link text-secondary">Forgot password?</a>
 
                 <hr>
 
-                <a href="" class="btn btn-dark w-100">Create an Account</a>
+                <a href="/signup" class="btn btn-dark w-100">Create an Account</a>
             </form>
 
 
@@ -39,3 +45,6 @@
 
 
 </div>
+
+
+<?= $this->endSection() ?>

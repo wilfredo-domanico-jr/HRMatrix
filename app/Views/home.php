@@ -1,9 +1,13 @@
+<?= $this->extend('layout/main-layout/authenticated') ?>
+
+ 
+<?= $this->section('content') ?> 
 
         <div class="page-title">
-            <h1>Orders: All locations</h1>
+            <h1 class="text-primary">Orders: All locations</h1>
         </div>
 
-        <section>
+        <section> 
 
   
         <div class="table-container">
@@ -41,6 +45,10 @@
 
 
         </section>
+
+        
+<?= $this->endSection() ?>
+
 
 
 

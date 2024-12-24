@@ -1,3 +1,9 @@
+<?= $this->extend('layout/main-layout/authenticated') ?>
+
+ 
+<?= $this->section('content') ?> 
+
+
 <div class="page-title">
   <h1>View Request</h1>
 
@@ -64,3 +70,7 @@
 
 
 </section>
+
+
+        
+<?= $this->endSection() ?>
