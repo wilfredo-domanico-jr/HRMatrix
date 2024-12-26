@@ -14,6 +14,9 @@
     background: linear-gradient(349deg, rgba(42,194,243,1) 25%, rgba(140,82,255,1) 100%);
 }
 
+.authenticated-body{
+  background-color: rgb(226 232 240);
+}
 table {
   font-size: 16px;
 }

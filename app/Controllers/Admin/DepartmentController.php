@@ -4,8 +4,6 @@ namespace App\Controllers\Admin;
 
 use App\Controllers\BaseController;
 use App\Models\DepartmentModel;
-use App\Models\RoleModel;
-use App\Models\UserModel;
 
 class DepartmentController extends BaseController
 {

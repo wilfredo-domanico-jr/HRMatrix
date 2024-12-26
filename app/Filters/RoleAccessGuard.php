@@ -39,9 +39,8 @@ class RoleAccessGuard implements FilterInterface
                 // Check role ID if admin which is RL-001
                 if(session('role_id') != 'RL-001'){
 
-                    var_dump('you dont have access to. For admin only');
-
-                    die();
+                    echo view('errors/html/unathorized-error');
+                        die();
         
                 }
             }

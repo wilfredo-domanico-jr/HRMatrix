@@ -16,8 +16,9 @@ class UserModel extends Model
         'department',
         'vacation_credits',
         'sickness_credits',
-        'created_at',
-        'role_id'
+        'role_id',
+        'is_active',
+        'created_at'
     ];
 
 
@@ -30,6 +31,16 @@ class UserModel extends Model
         return $this->join('departments', 'departments.DEPT_ID = users.department_id', 'left')
         ->join('roles', 'roles.ROLE_ID = users.role_id', 'left');
      }
+
+     public function countUsersByRole($roleId) {
+        return $this->where('role_id', $roleId)
+                        ->countAllResults();
+    }
+
+    public function countActiveUsers() {
+        return $this->where('is_active', 1)
+                        ->countAllResults();
+    }
 
 
 }

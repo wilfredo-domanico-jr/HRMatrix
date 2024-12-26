@@ -19,12 +19,17 @@
     <!-- JQUERY -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
+
+     <!--Load the AJAX API-->
+     <!--Google Charts-->
+     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
     <link rel="icon" href="<?php echo base_url('images/HRMatrixLogo.png'); ?>" type="image/x-icon"/>
 
     <title>HRMatrix</title>
 </head>
 
-<body>
+<body class="authenticated-body">
 
     <header class="header"> 
 
@@ -37,8 +42,8 @@
                 </div>
 
                 <div class="far-right">
-                    <span><?php echo session()->get('name'); ?></span>
-                    <img src="<?php echo base_url('images/HRMatrixLogo.png'); ?>" alt="Avatar" class="avatar">
+                    <span><?= session()->get('name'); ?></span>
+                    <a href="<?= base_url('/profile'); ?>"><img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar"></a>
                 </div>
 
         </div>
@@ -63,10 +68,8 @@
         
 
         <a href="<?= base_url('/home')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/home') === base_url($page)) ? 'active' : '' ?>">
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+          <i class="fas fa-chart-line fa-fw me-3"></i><span>Dashboard</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"><i
-            class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a>
         <a href="<?= base_url('/request-forms')?>" class="list-group-item list-group-item-action py-2 ripple <?= (base_url('/request-forms') === base_url($page)) ? 'active' : '' ?>"><i
             class="fas fa-chart-bar fa-fw me-3"></i><span>Request Forms</span></a>
            
