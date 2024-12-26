@@ -10,7 +10,7 @@
 
 <section class="shadow-lg">
 
-    <form action="<?= base_url('roles/update').'/'.$role['ROLE_ID'] ?>" method="POST">
+    <form action="<?= base_url('roles/update/').$role['ROLE_ID'] ?>" method="POST">
         <div class="row">
 
             <div class="col-6 mb-4">
@@ -36,7 +36,7 @@
 
         <div class="mt-4">
 
-        <button type="submit" class="btn btn-outline-success"><i class="fas fa-upload"></i> <span>Submit</span></button>
+        <button type="submit" class="btn btn-outline-primary"><i class="fas fa-edit"></i> <span>Update</span></button>
 
             <a href="<?= base_url('roles') ?>" class="btn btn-outline-danger">
                 <i class="fa-solid fa-arrow-left"></i>

@@ -12,10 +12,12 @@ class UserModel extends Model
         'name',
         'email',
         'password',
+        'password',
         'department',
         'vacation_credits',
         'sickness_credits',
-        'created_at'
+        'created_at',
+        'role_id'
     ];
 
 

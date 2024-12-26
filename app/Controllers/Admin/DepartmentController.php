@@ -76,27 +76,25 @@ class DepartmentController extends BaseController
         return view('admin/departments/show',$data);
     }
 
-    public function update($userId)
+    public function update($departmentId)
     {
-        
+    
 
-
-        $model = new UserModel();
+        $department = new DepartmentModel();
         
-       
-        // Update the user
-        $updated = $model->where('id', $userId)->set([
-            'department_id' => $this->request->getVar('department'),
-            'role_id' => $this->request->getVar('role'),
+    
+        // Update the department
+        $updated = $department->where('DEPT_ID', $departmentId)->set([
+            'DEPT_NAME' => $this->request->getVar('department_description')
         ])->update();
 
         if ($updated) {
             // Set a success message
-            session()->setFlashdata('msg', 'User  updated successfully.');
+            session()->setFlashdata('msg', 'Department  updated successfully.');
             session()->setFlashdata('icon', 'success');
         } else {
             // Set an error message if the update fails
-            session()->setFlashdata('msg', 'Failed to update user. Please try again.');
+            session()->setFlashdata('msg', 'Failed to update department. Please try again.');
             session()->setFlashdata('icon', 'error');
         }
 

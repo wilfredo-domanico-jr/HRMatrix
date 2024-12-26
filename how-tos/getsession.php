@@ -1,6 +1,0 @@
-<?php
-
-session('isLoggedIn')
-
-
-?>

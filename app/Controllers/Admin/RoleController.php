@@ -86,27 +86,26 @@ class RoleController extends BaseController
         return view('admin/roles/show',$data);
     }
 
-    public function update($userId)
+    public function update($roleId)
     {
         
 
 
-        $model = new UserModel();
+        $role = new RoleModel();
         
        
-        // Update the user
-        $updated = $model->where('id', $userId)->set([
-            'department_id' => $this->request->getVar('department'),
-            'role_id' => $this->request->getVar('role'),
+        // Update the role
+        $updated = $role->where('ROLE_ID', $roleId)->set([
+            'ROLE_DESC' => $this->request->getVar('role_description'),
         ])->update();
 
         if ($updated) {
             // Set a success message
-            session()->setFlashdata('msg', 'User  updated successfully.');
+            session()->setFlashdata('msg', 'Role updated successfully.');
             session()->setFlashdata('icon', 'success');
         } else {
             // Set an error message if the update fails
-            session()->setFlashdata('msg', 'Failed to update user. Please try again.');
+            session()->setFlashdata('msg', 'Failed to update role. Please try again.');
             session()->setFlashdata('icon', 'error');
         }
 
