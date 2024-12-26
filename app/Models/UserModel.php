@@ -13,7 +13,7 @@ class UserModel extends Model
         'email',
         'password',
         'password',
-        'department',
+        'department_id',
         'vacation_credits',
         'sickness_credits',
         'role_id',

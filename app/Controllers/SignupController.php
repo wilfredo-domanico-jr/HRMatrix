@@ -23,7 +23,7 @@ class SignupController extends Controller
             'confirmpassword'  => 'matches[password]'
         ];
 
-
+ 
         if($this->validate($rules)){
             $userModel = new UserModel();
             $data = [

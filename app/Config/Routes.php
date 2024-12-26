@@ -15,6 +15,8 @@ $routes->match(['GET', 'POST'], 'SigninController/loginAuth', 'SigninController:
 $routes->GET('/signin', 'SigninController::index');
 $routes->GET('/logout', 'SigninController::logout'); 
 
+$routes->GET('/forgot-password', 'ForgotPasswordController::index'); 
+$routes->POST('/forgot-password/submit', 'ForgotPasswordController::submit'); 
 
 /************* HOMEPAGE GROUP ********************/
 $routes->GET('/home', 'HomeController::index',['filter' => 'authGuard']);

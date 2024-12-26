@@ -70,12 +70,12 @@ class UsersController extends BaseController
 
             return redirect()->to('/users/create');
         }
-
+        
 
         $userData = [
             'name' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email'),
-            'password' => $this->request->getVar('initial_password'),
+            'password' => password_hash($this->request->getVar('initial_password'), PASSWORD_DEFAULT),
             'department_id' => $this->request->getVar('department'),
             'role_id'=> $this->request->getVar('role'),
         ];
