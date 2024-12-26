@@ -77,6 +77,12 @@ class HomeController extends BaseController
           $requests = $requestModel->countAll();
  
           $data['requestCount'] =  $requests;
+
+        //   echo '<pre>';
+        // var_dump($requestModel->getRequestByDepartment());
+        // die();
+          //Get request per Department
+          $data['requestPerDept'] =  $requestModel->getRequestByDepartment();
          
         return view('home',$data);
     }

@@ -35,6 +35,14 @@ class RequestHeaderModel extends Model{
       return $this->where('REQUEST_ID', $request_id)->first();
    }
 
+   public function getRequestByDepartment(){
+      return $this->select('departments.DEPT_NAME, COUNT(request_header.REQUEST_ID) as total_count')
+      ->join('users', 'users.id = request_header.USER_ID', 'left')
+      ->join('departments', 'departments.DEPT_ID = users.department_id', 'left')
+      ->groupBy('departments.DEPT_ID')
+      ->findAll();
+   }
+
 
 
 }
