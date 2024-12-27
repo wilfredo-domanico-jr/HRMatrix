@@ -30,29 +30,29 @@ class ForgotPasswordController extends Controller
 
         // Send an email
 
-        $to = $submittedEmail;
         $subject = "Password Reset Link";
         $message= "You have received a password reset link. Click to change your password";//Write the message you want to send
 
         $email = \Config\Services::email();
 
+
         $config = [
-            'protocol' => 'smtp',
-            'SMTPHost' => 'smtp.gmail.com', // Use your SMTP server
-            'SMTPPort' => 587, // Common SMTP port for TLS
-            'SMTPUser ' => 'wiis5upport@gmail.com', // Your email address
-            'SMTPPass' => 'ftarudbubexcspgv', // Your email password
-            'mailType' => 'html', // or 'text'
-            'charset' => 'utf-8',
-            'newline' => "\r\n",
-            'SMTPCrypto' => 'tls', // Use 'ssl' if your SMTP server requires it
+            'protocol' => env('protocol'),
+            'SMTPHost' => env('SMTPHost'),
+            'SMTPPort' => (int) env('SMTPPort'), 
+            'SMTPUser ' => env('SMTPUser'), 
+            'SMTPPass' => env('SMTPPass'),
+            'mailType' => env('mailType'), 
+            'charset' => env('charset'),
+            'newline' => env('newline'),
+            'SMTPCrypto' => env('SMTPCrypto'), 
         ];
 
             $email->initialize($config);
-            $email->setFrom('wiis5upport@gmail.com', 'Mail Testing');
+            $email->setFrom(env('SMTPUser'), 'Forgot Password');
             $email->setTo($submittedEmail);
-            $email->setSubject('Password Reset Link');
-            $email->setMessage('You have received a password reset link. Click to change your password');
+            $email->setSubject($subject);
+            $email->setMessage($message);
 
 
         if($email->send())

@@ -1,6 +1,6 @@
 # HRMatrix ( Building a Culture of Excellence )
 
-An web application created aims to help modern organizations to to manage their human resources effectively and efficiently. This system help the Company's HR to  processes and provide valuable insights resulting in enhance productivity, improve employee engagement, and ensure compliance with regulations.
+An web application aims to help modern organizations to manage their human resources effectively and efficiently. This system can help the Company's HR to  processes and provide valuable insights resulting in enhance productivity, improve employee engagement, and ensure compliance with regulations.
 
 <div align="center">
     <img src="public/images/HRMatrixLogo.png" alt="HRMatrix Logo" width="400">

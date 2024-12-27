@@ -237,15 +237,67 @@
             <div class="row">
 
                 <div class="col-8">
-                    <div class="bg-secondary rounded">
-                        <h1>Test</h1>
+                    <div class="bg-white p-4 rounded h-100">
+                        <h6 class="text-secondary mb-4">Upcoming Birthdays</h6>
+
+                        <table class="table">
+                                <thead class="text-secondary">
+                                    <th>Subject</th>
+                                    <th>Date</th>
+                                    <th>Short Description</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class=""><i class="bg-primary p-3 rounded-circle text-white far fa-clipboard"></i> <span>This is the title</span></td>
+                                        <td>December 28, 2024</td>
+                                        <td>Additional Task</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class=""><i class="bg-primary p-3 rounded-circle text-white far fa-clipboard"></i> <span>This is the title</span></td>
+                                        <td>December 28, 2024</td>
+                                        <td>Additional Task</td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <td class=""><i class="bg-primary p-3 rounded-circle text-white far fa-clipboard"></i> <span>This is the title</span></td>
+                                        <td>December 28, 2024</td>
+                                        <td>Additional Task</td>
+                                    </tr>
+                                </tbody>
+
+                            </table>
                     </div>
                 </div>
 
                 <div class="col-4">
-                    <div class="bg-secondary rounded">
-                        <h1>Test</h1>
-                    </div>
+                        <div class="bg-white p-4 rounded h-100">
+                            <h6 class="text-secondary mb-4">Upcoming Birthdays</h6>
+                            <?php
+                                    for ($x = 1; $x <= 5; $x++) {
+
+                                    ?>
+
+                                        <div class="d-flex gap-2 align-items-center mb-1 small border-bottom">
+                                            <div class="w-75 d-flex gap-4 align-items-center">
+                                                <img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar rounded">
+                                                <div class="d-flex flex-column">
+                                                     <span><?= session()->get('name'); ?></span> 
+                                                     <span class="text-secondary">Research and Development</span> 
+                                                </div>
+                                            </div>
+
+                                            <span class="text-secondary">2024-12-27</span>
+                                        </div>
+
+
+                                    <?php
+                                    }
+
+                                    ?>
+
+                        </div>
                 </div>
             </div>
 
