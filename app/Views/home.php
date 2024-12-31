@@ -50,8 +50,9 @@
 </div>
 
 
+
 <div class="my-4">
-    <div class="row" style="height: 10rem;" class="bg-success">
+    <div class="row" style="height: 10rem;" >
         <div class="col-12 mb-4">
             <div class="row">
 
@@ -60,8 +61,8 @@
 
                         <div class="bg-primary p-4 rounded text-white w-100">
                             <h3>Welcome, <?= session()->get('name'); ?>!</h3>
-                            <h5>You have 5 pending task, lets see what you can do today!</h5>
-                            <button class="btn btn-success">Check Now</button>
+                            <h5>You have <?= $pendingTask ?> pending task to monitor left, check it out today!</h5>
+                            <button class="btn btn-warning">Check Now</button>
                         </div>
 
                         <div class="row">
@@ -141,7 +142,7 @@
                                         <?php foreach ($topFive as $userList) : ?>
                                                 <div class="d-flex gap-4 align-items-center mb-1">
                                                     <div class="w-75 d-flex gap-4  align-items-center">
-                                                        <img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar">
+                                                        <img src="<?= base_url('images/profile/').$userList['profile']; ?>" alt="Profile Picture" class="avatar">
                                                         <span><?= $userList['name']?></span>
                                                     </div>
 
@@ -222,7 +223,7 @@
 
                         <div class="h-50">
                                 <div class="mb-4">
-                                    <h6 class="text-secondary mb-4">Employee Performance per Department</h6>
+                                    <h6 class="text-secondary mb-4">Total Task Finished Per Department</h6>
                                     <div id="employee_performance_per_year" class="w-100 h-100 text-center"></div>
                                 </div>
                         </div>
@@ -238,33 +239,30 @@
 
                 <div class="col-8">
                     <div class="bg-white p-4 rounded h-100">
-                        <h6 class="text-secondary mb-4">Upcoming Birthdays</h6>
+                        <h6 class="text-secondary mb-4">Canceled Tasks</h6>
 
                         <table class="table">
                                 <thead class="text-secondary">
-                                    <th>Subject</th>
-                                    <th>Date</th>
-                                    <th>Short Description</th>
+                                    <th>Task No.</th>
+                                    <th>Title</th>
+                                    <th>Start Date</th>
+                                    <th>End Date</th>
+                                    <th>Assigned To</th>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td class=""><i class="bg-primary p-3 rounded-circle text-white far fa-clipboard"></i> <span>This is the title</span></td>
-                                        <td>December 28, 2024</td>
-                                        <td>Additional Task</td>
-                                    </tr>
 
-                                    <tr>
-                                        <td class=""><i class="bg-primary p-3 rounded-circle text-white far fa-clipboard"></i> <span>This is the title</span></td>
-                                        <td>December 28, 2024</td>
-                                        <td>Additional Task</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td class=""><i class="bg-primary p-3 rounded-circle text-white far fa-clipboard"></i> <span>This is the title</span></td>
-                                        <td>December 28, 2024</td>
-                                        <td>Additional Task</td>
-                                    </tr>
+                                     <?php if (!empty($cancelledTask)) : ?>
+                                        <?php foreach ($cancelledTask as $cancelled) : ?>
+                                            <tr>
+                                                <th class="text-primary"><?= $cancelled['TASK_ID']?></th>
+                                                <th class="text-danger"><?= $cancelled['TITLE']?></th>
+                                                <td><?= $cancelled['START_DATE']?></td>
+                                                <td><?= $cancelled['END_DATE']?></td>
+                                                <td><?= $cancelled['name']?></td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                    <?php endif ; ?>
+                                    
                                 </tbody>
 
                             </table>
@@ -278,7 +276,7 @@
                                         <?php foreach ($birthdays as $birthday) : ?>
                                             <div class="d-flex gap-2 align-items-center mb-1 small border-bottom">
                                             <div class="w-75 d-flex gap-4 align-items-center">
-                                                <img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar rounded">
+                                                <img src="<?= base_url('images/profile/').$birthday['profile']; ?>" alt="Profile Picture" class="avatar rounded">
                                                 <div class="d-flex flex-column">
                                                      <span><?= $birthday['name'] ?></span> 
                                                      <span class="text-secondary"><?= $birthday['DEPT_NAME'] ?></span> 
@@ -353,11 +351,12 @@
     function drawNewEmployeesPerYear() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Year', 'Sales', 'Expenses'],
-          ['2004',  1000,      400],
-          ['2005',  1170,      460],
-          ['2006',  660,       1120],
-          ['2007',  1030,      540]
+          ['Year', 'Research and Development', 'Sales Department', 'Admin Department'],
+          ['2020',  349, 421,  347],
+          ['2021',  200, 521,  490],
+          ['2022',  200, 655,  775],
+          ['2023',  777,1345,  611],
+          ['2024',  466,304,  789]
         ]);
 
         var options = {

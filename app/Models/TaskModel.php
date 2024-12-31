@@ -19,9 +19,21 @@ class TaskModel extends Model
 
     public function getTopFiveEmployee() {
 
-        return $this->join('users', 'users.id = task.EMPLOYEE_ID', 'left')->where('role_id','RL-002')->select(['users.name','department_id'])->limit(5)->findAll();
+        return $this->join('users', 'users.id = task.EMPLOYEE_ID', 'left')->groupBy('task.EMPLOYEE_ID')->where('role_id','RL-002')->select(['task.EMPLOYEE_ID', 'COUNT(*) AS task_count','users.name','department_id','users.profile'])->limit(5)->orderBy('task_count', 'DESC')->findAll();
     }
 
+
+    public function countAllPendingTask() {
+
+        return $this->where('STATUS', 0)
+        ->countAllResults();
+    }
+
+    public function getAllCanceledTask() {
+
+        return $this->join('users', 'users.id = task.EMPLOYEE_ID', 'left')->where('STATUS', 1)
+        ->findAll();
+    }
 
 
 

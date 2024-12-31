@@ -87,6 +87,8 @@
           
         </table>
                   
+        <?= $pager->makeLinks($page,$perPage, $total, 'bootstrap_pagination') ?>
+
 
     </div>
 

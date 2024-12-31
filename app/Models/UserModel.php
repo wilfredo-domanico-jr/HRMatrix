@@ -18,6 +18,7 @@ class UserModel extends Model
         'birth_date',
         'role_id',
         'is_active',
+        'profile',
         'created_at'
     ];
 

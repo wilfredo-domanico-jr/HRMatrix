@@ -43,7 +43,7 @@
 
                 <div class="far-right">
                     <span><?= session()->get('name'); ?></span>
-                    <a href="<?= base_url('/profile'); ?>"><img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar"></a>
+                    <a href="<?= base_url('/profile'); ?>"><img src="<?= base_url('images/profile/').session('id').'.jpg'; ?>" alt="Profile Picture" class="avatar"></a>
                 </div>
 
         </div>

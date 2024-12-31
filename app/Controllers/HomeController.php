@@ -93,6 +93,13 @@ class HomeController extends BaseController
           $data['birthdays']  = $userModel->getEmployeesThatHaveBirthdayThisMonth();
 
 
+          // Get pending Task Count 
+          $data['pendingTask']  = $taskModel->countAllPendingTask();
+
+          // Get cancelled Task
+
+          $data['cancelledTask']  = $taskModel->getAllCanceledTask();
+
         return view('home',$data);
     }
 }
