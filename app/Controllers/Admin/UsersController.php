@@ -71,14 +71,16 @@ class UsersController extends BaseController
             return redirect()->to('/users/create');
         }
         
-
+       
         $userData = [
             'name' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email'),
             'password' => password_hash($this->request->getVar('initial_password'), PASSWORD_DEFAULT),
             'department_id' => $this->request->getVar('department'),
             'role_id'=> $this->request->getVar('role'),
+            'birth_date'=> $this->request->getVar('birth_date'),
         ];
+
 
         $model->insert($userData);
 
@@ -119,6 +121,7 @@ class UsersController extends BaseController
         $updated = $model->where('id', $userId)->set([
             'department_id' => $this->request->getVar('department'),
             'role_id' => $this->request->getVar('role'),
+            'birth_date' => $this->request->getVar('birth_date'),
         ])->update();
 
         if ($updated) {

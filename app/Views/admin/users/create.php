@@ -13,7 +13,7 @@
     <form action="<?= base_url('users/store') ?>" method="POST">
         <div class="row">
 
-            <div class="col-4 mb-4">
+            <div class="col-3 mb-4">
 
                 <div class="form-floating">
                     <input type="text" class="form-control" name="name" required>
@@ -22,7 +22,7 @@
 
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-3 mb-4">
 
                 <div class="form-floating">
                     <input type="email" class="form-control" name="email" required>
@@ -31,7 +31,7 @@
 
             </div>
 
-            <div class="col-4 mb-4">
+            <div class="col-3 mb-4">
 
                 <div class="form-floating">
 
@@ -42,6 +42,15 @@
                         <?php endforeach; ?>
                     </select>
                     <label>Department</label>
+                </div>
+
+            </div>
+
+            <div class="col-3 mb-4">
+
+                <div class="form-floating">
+                    <input type="date" class="form-control" name="birth_date" required>
+                    <label>Birthdate</label>
                 </div>
 
             </div>

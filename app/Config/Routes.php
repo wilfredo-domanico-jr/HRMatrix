@@ -30,6 +30,14 @@ $routes->GET('/request-forms/show/(:any)', 'RequestFormController::show/$1',['fi
 $routes->POST('/request-forms/delete/(:any)', 'RequestFormController::delete/$1',['filter' => ['authGuard','deptGuard']]);
 
 
+/************* TASK GROUP ********************/
+$routes->GET('/tasks', 'TaskController::index',['filter' => 'authGuard']);
+$routes->GET('/tasks/create', 'TaskController::create',['filter' => ['authGuard','adminOrEmployeeFilter']]);
+$routes->POST('/tasks/store', 'TaskController::store',['filter' => ['authGuard','adminOrEmployeeFilter']]);
+$routes->GET('/tasks/show/(:any)', 'TaskController::show/$1',['filter' => ['authGuard','adminOrEmployeeFilter']]);
+$routes->POST('/tasks/update/(:any)', 'TaskController::update/$1',['filter' => ['authGuard','adminOrEmployeeFilter']]);
+$routes->POST('/tasks/delete/(:any)', 'TaskController::delete/$1',['filter' => ['authGuard','adminOrEmployeeFilter']]);
+
 /************* ADMIN MODULE GROUP ********************/
 
     /************* USERS GROUP ********************/

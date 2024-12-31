@@ -124,7 +124,7 @@
 
                         </div>
 
-                        <div class="row">
+                        <div class="row mb-4">
 
                             <div class="col-6">
                                 <div class="bg-white p-4 rounded h-100">
@@ -137,25 +137,23 @@
                                 <div class="bg-white p-4 rounded h-100">
                                     <h6 class="text-secondary mb-4">Top 5 High Performing Employee</h6>
 
-                                    <?php
-                                    for ($x = 1; $x <= 5; $x++) {
+                                    <?php if (!empty($topFive)) : ?>
+                                        <?php foreach ($topFive as $userList) : ?>
+                                                <div class="d-flex gap-4 align-items-center mb-1">
+                                                    <div class="w-75 d-flex gap-4  align-items-center">
+                                                        <img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar">
+                                                        <span><?= $userList['name']?></span>
+                                                    </div>
 
-                                    ?>
+                                                    <span class="text-secondary text-nowrap w-25 text-truncate"><?= $userList['department_id']?></span>
+                                                </div>
+                                               
 
-                                        <div class="d-flex gap-4 align-items-center mb-1">
-                                            <div class="w-75 d-flex gap-4  align-items-center">
-                                                <img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar">
-                                                <span><?= session()->get('name'); ?></span>
-                                            </div>
-
-                                            <span class="text-secondary text-nowrap w-25 text-truncate">DEPT-00001</span>
-                                        </div>
+                                            <?php endforeach; ?>
+                                    <?php endif ; ?>
+                                        
 
 
-                                    <?php
-                                    }
-
-                                    ?>
 
                                 </div>
                             </div>
@@ -166,66 +164,68 @@
 
                 </div>
                 <div class="col-4 h-auto">
-                    <div class="d-flex flex-col h-100">
-                        <div class="rounded w-100 bg-white p-4 ">
+                    <div class="d-flex h-100">
+                        <div class="rounded bg-white w-100 mb-4 p-4 d-flex flex-column justify-content-between">
+
+                        <div class="h-50">
                             <div class="calendar h-auto">
-                                <!-- Month and Year Header -->
-                                <div class="bg-primary text-white text-center fw-bold "><?= date('F Y') ?></div>
+                                    <!-- Month and Year Header -->
+                                    <div class="bg-primary text-white text-center fw-bold "><?= date('F Y') ?></div>
 
-                                <!-- Days of the Week -->
-                                <div class="calendar-days">
-                                    <div>Sun</div>
-                                    <div>Mon</div>
-                                    <div>Tue</div>
-                                    <div>Wed</div>
-                                    <div>Thu</div>
-                                    <div>Fri</div>
-                                    <div>Sat</div>
-                                </div>
+                                    <!-- Days of the Week -->
+                                    <div class="calendar-days">
+                                        <div>Sun</div>
+                                        <div>Mon</div>
+                                        <div>Tue</div>
+                                        <div>Wed</div>
+                                        <div>Thu</div>
+                                        <div>Fri</div>
+                                        <div>Sat</div>
+                                    </div>
 
-                                <!-- Calendar Dates -->
-                                <div class="calendar-dates">
-                                    <?php
-                                    // Get the current month and year
-                                    $now = new DateTime();
-                                    $year = $now->format('Y');
-                                    $month = $now->format('m');
+                                    <!-- Calendar Dates -->
+                                    <div class="calendar-dates">
+                                        <?php
+                                        // Get the current month and year
+                                        $now = new DateTime();
+                                        $year = $now->format('Y');
+                                        $month = $now->format('m');
 
-                                    // Get the first day of the month
-                                    $firstDayOfMonth = new DateTime("$year-$month-01");
-                                    $firstDayOfWeek = $firstDayOfMonth->format('w'); // Day of the week for the 1st of the month
+                                        // Get the first day of the month
+                                        $firstDayOfMonth = new DateTime("$year-$month-01");
+                                        $firstDayOfWeek = $firstDayOfMonth->format('w'); // Day of the week for the 1st of the month
 
-                                    // Blank spaces for days before the month starts
-                                    for ($i = 0; $i < $firstDayOfWeek; $i++) {
-                                        echo '<div></div>'; // Empty divs for blank spaces
-                                    }
+                                        // Blank spaces for days before the month starts
+                                        for ($i = 0; $i < $firstDayOfWeek; $i++) {
+                                            echo '<div></div>'; // Empty divs for blank spaces
+                                        }
 
-                                    // Loop through the days of the month
-                                    $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
-                                    for ($day = 1; $day <= $daysInMonth; $day++) {
-                                        $dateString = sprintf('%04d-%02d-%02d', $year, $month, $day);
-                                        $date = new DateTime($dateString);
-                                        $dayOfWeek = $date->format('w');
+                                        // Loop through the days of the month
+                                        $daysInMonth = cal_days_in_month(CAL_GREGORIAN, $month, $year);
+                                        for ($day = 1; $day <= $daysInMonth; $day++) {
+                                            $dateString = sprintf('%04d-%02d-%02d', $year, $month, $day);
+                                            $date = new DateTime($dateString);
+                                            $dayOfWeek = $date->format('w');
 
-                                        // Check if the date is today
-                                        $isToday = $date->format('Y-m-d') === $now->format('Y-m-d') ? 'today' : '';
+                                            // Check if the date is today
+                                            $isToday = $date->format('Y-m-d') === $now->format('Y-m-d') ? 'today' : '';
 
-                                        // Output the date
-                                        echo "<div class='$isToday'>$day</div>";
-                                    }
-                                    ?>
-                                </div>
-
+                                            // Output the date
+                                            echo "<div class='$isToday'>$day</div>";
+                                        }
+                                        ?>
+                                    </div>
 
                             </div>
 
-                            <div class="mb-4 w-100 h-auto">
-                                <div id="new_employee_per_year" class="w-100 h-100 text-center"></div>
-                            </div>
-
-                            
                         </div>
 
+                        <div class="h-50">
+                                <div class="mb-4">
+                                    <h6 class="text-secondary mb-4">Employee Performance per Department</h6>
+                                    <div id="employee_performance_per_year" class="w-100 h-100 text-center"></div>
+                                </div>
+                        </div>
 
                     </div>
                 </div>
@@ -274,28 +274,22 @@
                 <div class="col-4">
                         <div class="bg-white p-4 rounded h-100">
                             <h6 class="text-secondary mb-4">Upcoming Birthdays</h6>
-                            <?php
-                                    for ($x = 1; $x <= 5; $x++) {
-
-                                    ?>
-
-                                        <div class="d-flex gap-2 align-items-center mb-1 small border-bottom">
+                                    <?php if (!empty($birthdays)) : ?>
+                                        <?php foreach ($birthdays as $birthday) : ?>
+                                            <div class="d-flex gap-2 align-items-center mb-1 small border-bottom">
                                             <div class="w-75 d-flex gap-4 align-items-center">
                                                 <img src="<?= base_url('images/HRMatrixLogo.png'); ?>" alt="Profile Picture" class="avatar rounded">
                                                 <div class="d-flex flex-column">
-                                                     <span><?= session()->get('name'); ?></span> 
-                                                     <span class="text-secondary">Research and Development</span> 
+                                                     <span><?= $birthday['name'] ?></span> 
+                                                     <span class="text-secondary"><?= $birthday['DEPT_NAME'] ?></span> 
                                                 </div>
                                             </div>
 
-                                            <span class="text-secondary">2024-12-27</span>
+                                            <span class="text-secondary"><?= $birthday['birth_date'] ?></span>
                                         </div>
 
-
-                                    <?php
-                                    }
-
-                                    ?>
+                                            <?php endforeach; ?>
+                                    <?php endif ; ?>
 
                         </div>
                 </div>
@@ -367,12 +361,12 @@
         ]);
 
         var options = {
-          title: 'Company Performance',
+        //   title: 'Employee Performance per Department',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
 
-        var chart = new google.visualization.LineChart(document.getElementById('new_employee_per_year'));
+        var chart = new google.visualization.LineChart(document.getElementById('employee_performance_per_year'));
 
         chart.draw(data, options);
     }

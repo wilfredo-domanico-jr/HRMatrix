@@ -12,10 +12,10 @@ class UserModel extends Model
         'name',
         'email',
         'password',
-        'password',
         'department_id',
         'vacation_credits',
         'sickness_credits',
+        'birth_date',
         'role_id',
         'is_active',
         'created_at'
@@ -40,6 +40,18 @@ class UserModel extends Model
     public function countActiveUsers() {
         return $this->where('is_active', 1)
                         ->countAllResults();
+    }
+
+    public function getAllEmployee() {
+        return $this->where('role_id', 'RL-002')->findAll(); 
+
+    }
+
+    public function getEmployeesThatHaveBirthdayThisMonth() {
+
+        $current_month = date('m');
+        return $this->join('departments', 'departments.DEPT_ID = users.department_id', 'left')->where('MONTH(birth_date)', $current_month)->limit(5)->findAll(); 
+
     }
 
 

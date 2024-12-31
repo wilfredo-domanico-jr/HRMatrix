@@ -13,7 +13,7 @@
     <form action="<?= base_url('users/update').'/'.$user['id'] ?>" method="POST">
         <div class="row">
 
-            <div class="col-6 mb-4">
+            <div class="col-4 mb-4">
 
                 <div class="form-floating">
                     <input type="text" class="form-control" name="name" value="<?= $user['name'] ?>" readonly>
@@ -22,11 +22,20 @@
 
             </div>
 
-            <div class="col-6 mb-4">
+            <div class="col-4 mb-4">
 
                 <div class="form-floating">
                     <input type="email" class="form-control" name="email" value="<?= $user['email'] ?>" readonly>
                     <label>Email</label>
+                </div>
+
+            </div>
+
+            <div class="col-4 mb-4">
+
+                <div class="form-floating">
+                    <input type="date" class="form-control" name="birth_date" value="<?= $user['birth_date'] ?>">
+                    <label>Birthdate</label>
                 </div>
 
             </div>

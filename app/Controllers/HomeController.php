@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\DepartmentModel;
 use App\Models\RequestHeaderModel;
+use App\Models\TaskModel;
 use App\Models\UserModel;
 use DateTime;
 
@@ -78,12 +79,20 @@ class HomeController extends BaseController
  
           $data['requestCount'] =  $requests;
 
-        //   echo '<pre>';
-        // var_dump($requestModel->getRequestByDepartment());
-        // die();
-          //Get request per Department
           $data['requestPerDept'] =  $requestModel->getRequestByDepartment();
-         
+
+          // Get top 5 high performing employee
+
+          $taskModel = new TaskModel();
+
+       
+          $data['topFive']  = $taskModel->getTopFiveEmployee();
+
+
+          // Get 5 employees who are having a birthday this month.
+          $data['birthdays']  = $userModel->getEmployeesThatHaveBirthdayThisMonth();
+
+
         return view('home',$data);
     }
 }

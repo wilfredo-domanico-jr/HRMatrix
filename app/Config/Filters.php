@@ -37,6 +37,7 @@ class Filters extends BaseFilters
         'authGuard' => \App\Filters\AuthGuard::class,
         'deptGuard' => \App\Filters\DepartmentGuard::class,
         'roleAccessGuard' => \App\Filters\RoleAccessGuard::class,
+        'adminOrEmployeeFilter' => \App\Filters\AdminOrEmployeeFilter::class,
     ];
 
     /**
